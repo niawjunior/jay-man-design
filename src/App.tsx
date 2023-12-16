@@ -110,7 +110,7 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col h-screen max-w-[700px] mx-auto overflow-hidden px-4 py-10 relative">
+      <div className="flex flex-col h-[100dvh] max-w-[700px] mx-auto overflow-hidden px-4 py-10 relative">
         <div className="flex justify-between items-center mb-2 gap-4 text-1xl">
           <div className="flex items-center gap-2">
             <ImFontSize />
@@ -173,7 +173,7 @@ function App() {
             <MdDownload className="text-black" />
           </button>
         </div>
-        <div className="flex flex-col h-screen" ref={captureRef}>
+        <div className="flex flex-col h-[80dvh]" ref={captureRef}>
           <Canvas
             bgColor={bgColor}
             textColor={textColor}
