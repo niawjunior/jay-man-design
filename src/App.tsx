@@ -12,13 +12,16 @@ import html2canvas from "html2canvas"
 function App() {
   const [parentWidth, setParentWidth] = useState(window.innerWidth)
   const [fontSize, setFontSize] = useState(28)
-
+  const [blur, setBlur] = useState(false)
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
   const [displayTextColorPicker, setDisplayTextColorPicker] = useState(false)
   const [bgColor, setBgColor] = useState("#000")
   const [textColor, setTextColor] = useState("#fff")
   const captureRef = useRef(null)
 
+  const handleBlur = () => {
+    setBlur(true)
+  }
   const handleClick = () => {
     setDisplayColorPicker(!displayColorPicker)
   }
@@ -36,17 +39,20 @@ function App() {
   }, [parentWidth])
 
   const handleCaptureAndDownload = () => {
-    const captureElement = captureRef.current
+    setBlur(!blur)
+    setTimeout(() => {
+      const captureElement = captureRef.current
 
-    if (captureElement) {
-      html2canvas(captureElement).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png")
-        const link = document.createElement("a")
-        link.download = new Date().toISOString() + "screenshot.png"
-        link.href = imgData
-        link.click()
-      })
-    }
+      if (captureElement) {
+        html2canvas(captureElement).then((canvas) => {
+          const imgData = canvas.toDataURL("image/png")
+          const link = document.createElement("a")
+          link.download = new Date().toISOString() + "screenshot.png"
+          link.href = imgData
+          link.click()
+        })
+      }
+    }, 100)
   }
 
   const styles: any = reactCSS({
@@ -175,6 +181,8 @@ function App() {
         </div>
         <div className="flex flex-col h-[80dvh] bg-black p-2" ref={captureRef}>
           <Canvas
+            blur={blur}
+            onBlur={handleBlur}
             bgColor={bgColor}
             textColor={textColor}
             fontSize={fontSize}
@@ -183,6 +191,8 @@ function App() {
             width={parentWidth}
           />
           <Canvas
+            blur={blur}
+            onBlur={handleBlur}
             bgColor={bgColor}
             textColor={textColor}
             fontSize={fontSize}
@@ -191,6 +201,8 @@ function App() {
             width={parentWidth}
           />
           <Canvas
+            blur={blur}
+            onBlur={handleBlur}
             bgColor={bgColor}
             textColor={textColor}
             fontSize={fontSize}

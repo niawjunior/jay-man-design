@@ -8,6 +8,8 @@ const FabricComponent = ({
   fontSize,
   bgColor,
   textColor,
+  onBlur,
+  blur,
 }: {
   width: number
   sentence: string
@@ -15,6 +17,8 @@ const FabricComponent = ({
   fontSize: number
   bgColor: string
   textColor: string
+  onBlur: () => void
+  blur: boolean
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   let fabricCanvas: fabric.Canvas | null = null
@@ -113,6 +117,9 @@ const FabricComponent = ({
     initCanvas()
     window.addEventListener("resize", adjustCanvasSize)
 
+    if (fabricCanvas) {
+      fabricCanvas.discardActiveObject()
+    }
     // cleanup function
     return () => {
       if (fabricCanvas) {
@@ -122,11 +129,14 @@ const FabricComponent = ({
 
       window.removeEventListener("resize", adjustCanvasSize)
     }
-  }, [fontSize, width, sentence, bg, bgColor, textColor])
+  }, [fontSize, width, sentence, bg, bgColor, textColor, blur])
 
   return (
     <div
-      onBlur={() => fabricCanvas?.discardActiveObject()}
+      tabIndex={0}
+      onBlur={() => {
+        onBlur()
+      }}
       className="flex-grow flex items-end justify-center border-b-2 last:border-b-0 border-white  bg-cover bg bg-center"
       style={{ backgroundImage: `url("/${bg}")` }}
     >
