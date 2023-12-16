@@ -20,6 +20,7 @@
     "reactcss": "^1.2.3"
   },
   "devDependencies": {
+    "@types/downloadjs": "^1.4.6",
     "@types/fabric": "^5.3.6",
     "@types/gtag.js": "^0.0.18",
     "@types/react": "^18.2.43",
