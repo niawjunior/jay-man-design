@@ -94,6 +94,7 @@ const FabricComponent = ({
       text.on("changed", () => {
         const textWidth = text.getBoundingRect().width
         const textHeight = text.getBoundingRect().height
+        onChange(text.text!)
 
         text.set({
           left: (fabricCanvas!.width! - textWidth) / 2,
@@ -130,7 +131,7 @@ const FabricComponent = ({
 
       window.removeEventListener("resize", adjustCanvasSize)
     }
-  }, [fontSize, width, sentence, bg, bgColor, textColor, blur])
+  }, [fontSize, width, bg, bgColor, textColor, blur])
 
   return (
     <div
