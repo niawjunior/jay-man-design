@@ -25,9 +25,6 @@ function App() {
   const [text2, setText2] = useState("วันไหนร้านปิด")
   const [text3, setText3] = useState("หงุดหงิดฉิบหาย")
 
-  const handleBlur = () => {
-    setBlur(true)
-  }
   const handleClick = () => {
     setDisplayColorPicker(!displayColorPicker)
   }
@@ -236,7 +233,6 @@ function App() {
         <div className="flex flex-col h-[80dvh] bg-black p-2" ref={captureRef}>
           <Canvas
             blur={blur}
-            onBlur={handleBlur}
             bgColor={bgColor}
             textColor={textColor}
             fontSize={fontSize}
@@ -247,7 +243,6 @@ function App() {
           />
           <Canvas
             blur={blur}
-            onBlur={handleBlur}
             bgColor={bgColor}
             textColor={textColor}
             fontSize={fontSize}
@@ -258,7 +253,6 @@ function App() {
           />
           <Canvas
             blur={blur}
-            onBlur={handleBlur}
             bgColor={bgColor}
             textColor={textColor}
             fontSize={fontSize}

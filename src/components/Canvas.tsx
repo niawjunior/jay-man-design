@@ -8,7 +8,6 @@ const FabricComponent = ({
   fontSize,
   bgColor,
   textColor,
-  onBlur,
   blur,
   onChange,
 }: {
@@ -18,7 +17,6 @@ const FabricComponent = ({
   fontSize: number
   bgColor: string
   textColor: string
-  onBlur: () => void
   blur: boolean
   onChange: (text: string) => void
 }) => {
@@ -137,9 +135,6 @@ const FabricComponent = ({
   return (
     <div
       tabIndex={0}
-      onBlur={() => {
-        onBlur()
-      }}
       className="flex-grow flex items-end justify-center border-b-2 last:border-b-0 border-white  bg-cover bg bg-center"
       style={{ backgroundImage: `url("/${bg}")` }}
     >
