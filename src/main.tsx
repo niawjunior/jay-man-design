@@ -5,7 +5,7 @@ import App from "./App.tsx"
 import "./index.css"
 
 const tagManagerArgs = {
-  gtmId: "GTM-000000",
+  gtmId: "GTM-P72XJFM2",
 }
 
 TagManager.initialize(tagManagerArgs)

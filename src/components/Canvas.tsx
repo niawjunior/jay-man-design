@@ -124,7 +124,7 @@ const FabricComponent = ({
     <div
       onBlur={() => fabricCanvas?.discardActiveObject()}
       className="flex-grow flex items-end justify-center border-b-2 last:border-b-0 border-white  bg-cover bg bg-center"
-      style={{ backgroundImage: `url("/src/assets/${bg}")` }}
+      style={{ backgroundImage: `url("/${bg}")` }}
     >
       <div
         className=" w-full flex justify-center"
