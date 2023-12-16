@@ -10,6 +10,7 @@ const FabricComponent = ({
   textColor,
   onBlur,
   blur,
+  onChange,
 }: {
   width: number
   sentence: string
@@ -19,6 +20,7 @@ const FabricComponent = ({
   textColor: string
   onBlur: () => void
   blur: boolean
+  onChange: (text: string) => void
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   let fabricCanvas: fabric.Canvas | null = null
@@ -88,6 +90,7 @@ const FabricComponent = ({
           top: fabricCanvas!.height! / 2 - text.getBoundingRect().height / 2,
         })
         fabricCanvas?.centerObject(text)
+        onChange(text.text!)
       })
 
       text.on("changed", () => {

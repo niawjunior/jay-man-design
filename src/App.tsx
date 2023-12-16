@@ -21,6 +21,9 @@ function App() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [sBrowser, setBrowser] = useState("")
   const [isInApp, setIsInApp] = useState(true)
+  const [text1, setText1] = useState("ผมชอบกินก๋วยเตี๋ยวไก่")
+  const [text2, setText2] = useState("วันไหนร้านปิด")
+  const [text3, setText3] = useState("หงุดหงิดฉิบหาย")
 
   const handleBlur = () => {
     setBlur(true)
@@ -238,8 +241,9 @@ function App() {
             textColor={textColor}
             fontSize={fontSize}
             bg="bg-1.png"
-            sentence="ผมชอบกินก๋วยเตี๋ยวไก่"
+            sentence={text1}
             width={parentWidth}
+            onChange={(e) => setText1(e)}
           />
           <Canvas
             blur={blur}
@@ -248,8 +252,9 @@ function App() {
             textColor={textColor}
             fontSize={fontSize}
             bg="bg-2.png"
-            sentence="วันไหนร้านปิด"
+            sentence={text2}
             width={parentWidth}
+            onChange={(e) => setText2(e)}
           />
           <Canvas
             blur={blur}
@@ -258,8 +263,9 @@ function App() {
             textColor={textColor}
             fontSize={fontSize}
             bg="bg-3.png"
-            sentence="หงุดหงิดฉิบหาย"
+            sentence={text3}
             width={parentWidth}
+            onChange={(e) => setText3(e)}
           />
           <div className="text-right py-2 text-xs text-white">
             https://jay-man.vercel.app
