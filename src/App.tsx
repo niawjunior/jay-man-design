@@ -42,7 +42,7 @@ function App() {
       html2canvas(captureElement).then((canvas) => {
         const imgData = canvas.toDataURL("image/png")
         const link = document.createElement("a")
-        link.download = "screenshot.png"
+        link.download = new Date().toISOString() + "screenshot.png"
         link.href = imgData
         link.click()
       })
@@ -173,7 +173,7 @@ function App() {
             <MdDownload className="text-black" />
           </button>
         </div>
-        <div className="flex flex-col h-[80dvh]" ref={captureRef}>
+        <div className="flex flex-col h-[80dvh] bg-black p-2" ref={captureRef}>
           <Canvas
             bgColor={bgColor}
             textColor={textColor}
@@ -198,6 +198,9 @@ function App() {
             sentence="หงุดหงิดฉิบหาย"
             width={parentWidth}
           />
+          <div className="text-right py-2 text-xs text-white">
+            https://jay-man.vercel.app
+          </div>
         </div>
         <div>
           Build with ❤️ by{" "}

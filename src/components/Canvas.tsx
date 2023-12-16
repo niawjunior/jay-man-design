@@ -99,6 +99,10 @@ const FabricComponent = ({
           text.set("text", text.text!.replace(/\s/g, " "))
         }
       })
+
+      text.on("mousedown", () => {
+        text.selectAll()
+      })
       fabricCanvas!.add(text)
 
       adjustCanvasSize()
